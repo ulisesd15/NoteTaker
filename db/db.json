@@ -1,8 +1,22 @@
 [
     {
-        
-        "title":"Test Title",
-        "text":"Test text",
+        "title": "Test Title",
+        "text": "Test text",
         "note_id": "Test note_id"
+    },
+    {
+        "title": "note",
+        "text": "new note",
+        "note_id": "7625655d-b821-4a50-85ec-b21061e1bd31"
+    },
+    {
+        "title": "this is another new note",
+        "text": "new note",
+        "note_id": "c07d42f2-82a4-40a1-a03c-4dcbae6168fe"
+    },
+    {
+        "title": "new note",
+        "text": "tesxt\n",
+        "note_id": "e9dae2c1-e8ec-4bbc-a183-85009a9df8d7"
     }
 ]
