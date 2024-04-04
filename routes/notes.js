@@ -27,6 +27,7 @@ notes.get('/:note_id', (req, res) => {
 // DELETE Route for a specific tip
 notes.delete('/:tip_id', (req, res) => {
   const noteId = req.params.note_id;
+  console.log('delete req. received')
   readFromFile('./db/notes.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
