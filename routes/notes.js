@@ -25,25 +25,20 @@ notes.get('/:note_id', (req, res) => {
 });
 
 // DELETE Route for a specific tip
-notes.delete('/:note_id', async (req, res) => {
+notes.delete('/:tip_id', (req, res) => {
   const noteId = req.params.note_id;
-  
-  try {
-    let data = await readFromFile('./db/db.json');
-    let json = JSON.parse(data);
+  readFromFile('./db/notes.json')
+    .then((data) => JSON.parse(data))
+    .then((json) => {
+      // Make a new array of all tips except the one with the ID provided in the URL
+      const result = json.filter((note) => note.note_id !== noteId);
 
-    // Make a new array of all notes except the one with the ID provided in the URL
-    const result = json.filter((note) => note.note_id !== noteId);
+      // Save that array to the filesystem
+      writeToFile('./db/notes.json', result);
 
-    // Save that array to the filesystem
-    await writeToFile('./db/db.json', result);
-
-    // Respond to the DELETE request
-    res.json(`Item ${noteId} has been deleted 🗑️`);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json('Internal Server Error');
-  }
+      // Respond to the DELETE request
+      res.json(`Item ${noteId} has been deleted 🗑️`);
+    });
 });
 
 // POST Route for a new UX/UI tip
