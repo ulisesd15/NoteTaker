@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const { clog } = require('./middleware/clog');
 const api = require('./routes/index.js');
 
 const PORT = process.env.PORT || 3001;
@@ -25,6 +26,16 @@ app.get('/', (req, res) =>
 app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
+
+// DELETE Route for deleting a note by ID
+app.delete('/api/notes/:id', (req, res) => {
+  const noteId = req.params.id; // Get the ID of the note to delete
+
+  // Logic to delete the note from the database or file
+  // For example, you can use fs module to read the db.json file, remove the note with the given ID, and then rewrite the file
+
+  res.json({ message: `Note with ID ${noteId} has been deleted successfully` });
+});
 
 // Wildcard route to direct users to a 404 page  // do this last because if not, it will run before the other conditions are met
 
