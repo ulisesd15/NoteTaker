@@ -27,8 +27,9 @@ app.get('/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
+
 // DELETE Route for deleting a note by ID
-app.delete('/api/notes/:id', (req, res) => {
+app.delete('/db/notes/:id', (req, res) => {
   const noteId = req.params.id; // Get the ID of the note to delete
 
   // Logic to delete the note from the database or file
