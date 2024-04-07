@@ -18,7 +18,7 @@ notes.get('/:note_id', (req, res) => {
   readFromFile('./db/db.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
-      const result = json.filter((note) => note.id === noteId); // Corrected comparison
+      const result = json.filter((note) => note.note_id === noteId); 
       return result.length > 0
         ? res.json(result)
         : res.json('No note with that ID');
@@ -47,7 +47,7 @@ notes.delete('/:note_id', (req, res) => {
 notes.post('/', (req, res) => {
   console.log(req.body);
 
-  const { title, text, } = req.body;
+  const { title, text } = req.body;
 
   if (req.body) {
     const newNote = {
@@ -57,9 +57,9 @@ notes.post('/', (req, res) => {
     };
 
     readAndAppend(newNote, './db/db.json');
-    res.json(`Tip added successfully`);
+    res.json(`Note added successfully`);
   } else {
-    res.error('Error in adding tip');
+    res.error('Error in adding mpte');
   }
 });
 

@@ -41,7 +41,7 @@ app.delete('/db/notes/:id', (req, res) => {
 // Wildcard route to direct users to a 404 page  // do this last because if not, it will run before the other conditions are met
 
 app.get('*', (req, res) =>
-  res.sendFile(path.join(__dirname, 'public/index.html'))
+  res.sendFile(path.join(__dirname, 'public/note.html'))
 );
 
 app.listen(PORT, () =>
