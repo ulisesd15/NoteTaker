@@ -17,6 +17,7 @@ Run npm i in the terminal then run node server.js
 ## Usage
 With this project you are able to create a shopping list perhaps and edit it on the go or delete them once the item is grabbed.  The items will not delete even if the page is closed.
 
+![alt text](public/images/Notetakerproof.png)
 
 
 
